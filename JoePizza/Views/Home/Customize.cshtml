@@ -1,0 +1,119 @@
+﻿@model JoePizza.Models.Pizza;
+@{
+    ViewData["Title"] = "Details";
+
+}
+
+@using JoePizza.Utility
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@* @{
+
+    List<Laptops> laptops = HttpContextAccessor.HttpContext.Session.Get<List<Laptops>>("laptops");
+    Laptops laptop = null;
+    if (laptops != null)
+    {
+        laptop = laptops.FirstOrDefault(c => c.Id == Model.Id);
+    }
+
+} *@
+
+<br />
+<h2 class="text-info">Customize your Pizza</h2>
+<form asp-action="Details" method="post" enctype="multipart/form-data">
+    <div class="p-4 rounded border row">
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+        </div>
+
+        <div class="col-8">
+            <div class="form-group row mb-3">
+                <div class="col-4">
+                    <label asp-for="PizzaName"></label>
+                </div>
+                <div class="col-8">
+                    <input type="hidden" asp-for="Id" />
+                    <input asp-for="PizzaName" readonly="readonly" class="form-control" />
+                </div>
+                <span asp-validation-for="PizzaName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row mb-3">
+                <div class="col-4">
+                    <label asp-for="Price"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Price" readonly="readonly" class="form-control" />
+                </div>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row mb-3">
+                <div class="col-4">
+                    <label asp-for="Toppings"></label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="Toppings" asp-items="ViewBag.ToppingsId" class="form-control"></select>
+                    @* <input asp-for="Toppings" asp-items="" class="form-control" /> *@
+                </div>
+                <span asp-validation-for="Toppings" class="text-danger"></span>
+            </div>
+            @* <div class="form-group row mb-3">
+                <div class="col-4">
+                    <label asp-for="LaptopTypes.LaptopType"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="LaptopTypes.LaptopType" readonly="readonly" class="form-control" />
+                </div>
+                <span asp-validation-for="LaptopTypes.LaptopType" class="text-danger"></span>
+            </div> *@
+            <div class="form-group row mb-3">
+                <div class="col-4">
+                    <label asp-for="Sizes"></label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="Sizes" asp-items="ViewBag.SizeId" class="form-control"></select>
+                </div>
+                <span asp-validation-for="Sizes" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group row mb-3">
+                <div class="col-4">
+                </div>
+                <div class="col-8">
+                    
+                        @* @if (laptop != null)
+                        {
+                            <button type="submit" class="btn btn-danger form-control" asp-action="Remove" asp-route-id="@Model.Id">Remove from Cart</button>
+                        }
+                        else
+                        {
+                            <input type="submit" class="btn btn-info form-control" value="Add to Cart" />
+                        } *@
+
+                </div>
+
+            </div>
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-success">Back To List</a>
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3">
+            <img src="~/@Model.Image" width="100%" height="250px" style="border-radius:5px;border:1px solid #efefef" />
+        </div>
+
+
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+
+
