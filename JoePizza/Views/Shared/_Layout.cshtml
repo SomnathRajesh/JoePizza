@@ -26,7 +26,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">JoePizza</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" id="home">JoePizza</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -37,14 +37,14 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-controller="Home" asp-action="Checkout">
+                            <a class="nav-link text-light" asp-controller="Home" asp-action="Checkout" id="cart">
                                 <i class="fas fa-shopping-cart"></i>
                                 (@count)
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="OrderConfirmation">Orders</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Orders">Orders</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />

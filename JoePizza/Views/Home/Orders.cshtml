@@ -1,0 +1,100 @@
+﻿@using JoePizza.Models;
+@model IEnumerable<Order>
+@* @model IEnumerable<OrderDetails> *@
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info" id="orderlist">Order List</h2>
+    </div>
+</div>
+
+<br />
+<div>
+    <table class="table table-striped border" id="myTable">
+        <thead>
+            <tr class="table-info">
+                <th>
+                    @Html.DisplayNameFor(l=>l.OrderID)
+                </th>
+                <th>
+                    Type of Pizza
+                </th>
+                <th>Topping</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>
+                    @Html.DisplayNameFor(l=>l.Amount)
+                </th>
+
+
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.OrderID</td>
+                    <td>
+                        <ul>
+                            @foreach (var o in item.OrderDetails)
+                            {
+                                @if (o.Pizzas != null)
+                                {
+                                    <li>@o.Pizzas.PizzaName (Quantity: @o.Quantity)</li>
+                                }
+                            }
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            @foreach (var o in item.OrderDetails)
+                            {
+                                @if (o.Toppings != null)
+                                {
+                                    <li>@o.Toppings.ToppingsName (Price: @o.Toppings.Price)</li>
+                                }
+                            }
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            @foreach (var o in item.OrderDetails)
+                            {
+                                @if (o.Size != null)
+                                {
+                                    <li>@o.Size.PizzaSize (Price: @o.Size.Price)</li>
+                                }
+                            }
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            @foreach (var o in item.OrderDetails)
+                            {
+                                @if (o.Price != null)
+                                {
+                                    <li>@o.Price</li>
+                                }
+                            }
+                        </ul>
+                    </td>
+                    <td>@item.Amount</td>
+
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+</div>
+
+@section scripts{
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+}
+
