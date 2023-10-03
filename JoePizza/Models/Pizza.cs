@@ -22,6 +22,6 @@ namespace JoePizza.Models
 
         public virtual List<Toppings>? Toppings { get; set; }
 
-        public virtual List<Size>? Sizes { get; set; }
+        public virtual List<Size> Sizes { get; set; }
     }
 }

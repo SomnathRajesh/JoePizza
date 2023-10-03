@@ -10,34 +10,22 @@
 @{
 
     List<int> quantities = HttpContextAccessor.HttpContext.Session.Get<List<int>>("quantity");
-    List<Size> sizes = HttpContextAccessor.HttpContext.Session.Get<List<Size>>("sizes");
-    List<Toppings> toppings = HttpContextAccessor.HttpContext.Session.Get<List<Toppings>>("toppings");
     if (quantities == null)
     {
         quantities = new List<int>();
-    }
-    if (sizes == null)
-    {
-        sizes = new List<Size>();
-    }
-    if (toppings == null)
-    {
-        toppings = new List<Toppings>();
     }
     decimal? totalCartPrice = 0;
     for (var i = 0; i < Model.Count; i++)
     {
         var pizza = Model[i];
         var quantity = quantities[i];
-        var topping = toppings[i];
-        var size = sizes[i];
-        var totalPizzaPrice = (pizza.Price + topping.Price + size.Price) * quantity;
+        var totalPizzaPrice = pizza.Price * quantity;
         totalCartPrice += totalPizzaPrice; 
     }
 
 }
 
-<h1 id="checkout">Checkout</h1>
+<h1>Your Cart</h1>
 
 <br />
 <div class="row">
@@ -52,10 +40,6 @@
                         <th>Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Toppings</th>
-                        <th>Toppings Price</th>
-                        <th>Size</th>
-                        <th>Price acc to Size</th>
                         <th>Total Price</th>
                         <th></th>
                     </tr>
@@ -65,23 +49,17 @@
                     {
                         var pizza = Model[i];
                         var quantity = quantities[i];
-                        var size = sizes[i];
-                        var topping = toppings[i];
-                        var totalPizzaPrice = (pizza.Price + topping.Price + size.Price) * quantity;
-                        <tr id="pizzarow-@pizza.PizzaName">
+                        var totalPizzaPrice = pizza.Price * quantity;
+                        <tr>
                             <td>
                                 <img src="~/@pizza.Image" height="100px" width="150px" />
                             </td>
-                            <td id="name-@pizza.PizzaName">@pizza.PizzaName</td>
-                            <td id="price-@pizza.PizzaName">@pizza.Price</td>
-                            <td id="quantity-@pizza.PizzaName">@quantity</td>
-                            <td id="toppingname-@pizza.PizzaName">@topping.ToppingsName</td>
-                            <td id="toppingprice-@pizza.PizzaName">@topping.Price</td>
-                            <td id="psize-@pizza.PizzaName">@size.PizzaSize</td>
-                            <td id="sizeprice-@pizza.PizzaName">@size.Price</td>
-                            <td id="totalprice-@pizza.PizzaName">@totalPizzaPrice</td>
+                            <td>@pizza.PizzaName</td>
+                            <td>@pizza.Price</td>
+                            <td>@quantity</td>
+                            <td>@totalPizzaPrice</td>
                             <td>
-                                <a asp-action="Remove" asp-controller="Home" asp-route-id="@pizza.Id" class="btn btn-danger" id="remove">
+                                <a asp-action="Remove" asp-controller="Home" asp-route-id="@pizza.Id" class="btn btn-danger">
                                     <i class="fa-solid fa-trash"></i>
                                 </a>
                             </td>
@@ -93,7 +71,7 @@
                 <h3>Total Cart Price : <span>&#8377;</span>@totalCartPrice</h3>
             </div>
             <div class="form-group text-end">
-                <input type="submit" value="Place Order" class="btn btn-success" id="order" />
+                <input type="submit" value="Place Order" class="btn btn-success" />
             </div>
         </div>
     </form>

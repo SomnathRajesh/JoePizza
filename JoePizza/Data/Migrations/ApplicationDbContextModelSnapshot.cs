@@ -60,16 +60,7 @@ namespace JoePizza.Data.Migrations
                     b.Property<int>("PizzaId")
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SizeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ToppingId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -77,10 +68,6 @@ namespace JoePizza.Data.Migrations
                     b.HasIndex("OrderId");
 
                     b.HasIndex("PizzaId");
-
-                    b.HasIndex("SizeId");
-
-                    b.HasIndex("ToppingId");
 
                     b.ToTable("OrderDetails");
                 });
@@ -109,37 +96,6 @@ namespace JoePizza.Data.Migrations
                     b.ToTable("Pizza");
                 });
 
-            modelBuilder.Entity("JoePizza.Models.PizzasInCart", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("PizzaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SizeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ToppingId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PizzaId");
-
-                    b.HasIndex("SizeId");
-
-                    b.HasIndex("ToppingId");
-
-                    b.ToTable("pizzasInCart");
-                });
-
             modelBuilder.Entity("JoePizza.Models.Size", b =>
                 {
                     b.Property<int>("Id")
@@ -154,10 +110,6 @@ namespace JoePizza.Data.Migrations
                     b.Property<string>("PizzaSize")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal?>("Price")
-                        .IsRequired()
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -418,52 +370,9 @@ namespace JoePizza.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JoePizza.Models.Size", "Size")
-                        .WithMany()
-                        .HasForeignKey("SizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("JoePizza.Models.Toppings", "Toppings")
-                        .WithMany()
-                        .HasForeignKey("ToppingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Order");
 
                     b.Navigation("Pizzas");
-
-                    b.Navigation("Size");
-
-                    b.Navigation("Toppings");
-                });
-
-            modelBuilder.Entity("JoePizza.Models.PizzasInCart", b =>
-                {
-                    b.HasOne("JoePizza.Models.Pizza", "Pizzas")
-                        .WithMany()
-                        .HasForeignKey("PizzaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("JoePizza.Models.Size", "Size")
-                        .WithMany()
-                        .HasForeignKey("SizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("JoePizza.Models.Toppings", "Toppings")
-                        .WithMany()
-                        .HasForeignKey("ToppingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Pizzas");
-
-                    b.Navigation("Size");
-
-                    b.Navigation("Toppings");
                 });
 
             modelBuilder.Entity("JoePizza.Models.Size", b =>
