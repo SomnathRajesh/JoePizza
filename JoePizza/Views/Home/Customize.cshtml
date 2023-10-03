@@ -1,6 +1,6 @@
 ﻿@model JoePizza.Models.Pizza;
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Customize";
 
 }
 
@@ -8,20 +8,19 @@
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 
-@* @{
-
-    List<Laptops> laptops = HttpContextAccessor.HttpContext.Session.Get<List<Laptops>>("laptops");
-    Laptops laptop = null;
-    if (laptops != null)
+@{
+    List<Pizza> pizzas = HttpContextAccessor.HttpContext.Session.Get<List<Pizza>>("pizzas");
+    Pizza pizzac = null;
+    if (pizzas != null)
     {
-        laptop = laptops.FirstOrDefault(c => c.Id == Model.Id);
+        pizzac = pizzas.FirstOrDefault(c => c.Id == Model.Id);
     }
 
-} *@
+}
 
 <br />
-<h2 class="text-info">Customize your Pizza</h2>
-<form asp-action="Details" method="post" enctype="multipart/form-data">
+<h2 class="text-info" id="customize">Customize your Pizza</h2>
+<form asp-action="Customize" method="post" enctype="multipart/form-data" asp-controller="Home">
     <div class="p-4 rounded border row">
         <div asp-validation-summary="ModelOnly" class="text-danger">
         </div>
@@ -33,7 +32,7 @@
                 </div>
                 <div class="col-8">
                     <input type="hidden" asp-for="Id" />
-                    <input asp-for="PizzaName" readonly="readonly" class="form-control" />
+                    <input asp-for="PizzaName" readonly="readonly" class="form-control" id="@Model.PizzaName" />
                 </div>
                 <span asp-validation-for="PizzaName" class="text-danger"></span>
             </div>
@@ -50,31 +49,28 @@
 
             <div class="form-group row mb-3">
                 <div class="col-4">
-                    <label asp-for="Toppings"></label>
+                    <label>Toppings</label>
                 </div>
                 <div class="col-8">
-                    <select asp-for="Toppings" asp-items="ViewBag.ToppingsId" class="form-control"></select>
+                    <select asp-items="ViewBag.ToppingsId" class="form-control" name="topping"></select>
                     @* <input asp-for="Toppings" asp-items="" class="form-control" /> *@
                 </div>
-                <span asp-validation-for="Toppings" class="text-danger"></span>
             </div>
-            @* <div class="form-group row mb-3">
-                <div class="col-4">
-                    <label asp-for="LaptopTypes.LaptopType"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="LaptopTypes.LaptopType" readonly="readonly" class="form-control" />
-                </div>
-                <span asp-validation-for="LaptopTypes.LaptopType" class="text-danger"></span>
-            </div> *@
             <div class="form-group row mb-3">
                 <div class="col-4">
-                    <label asp-for="Sizes"></label>
+                    <label>Sizes</label>
                 </div>
                 <div class="col-8">
-                    <select asp-for="Sizes" asp-items="ViewBag.SizeId" class="form-control"></select>
+                    <select asp-items="ViewBag.SizeId" class="form-control" name="size"></select>
                 </div>
-                <span asp-validation-for="Sizes" class="text-danger"></span>
+            </div>
+            <div class="form-group row mb-3">
+                <div class="col-4">
+                    <label>Quantity</label>
+                </div>
+                <div class="col-8">
+                    <input type="number" name="quantity"/>
+                </div>
             </div>
 
 
@@ -83,14 +79,14 @@
                 </div>
                 <div class="col-8">
                     
-                        @* @if (laptop != null)
+                        @if (pizzac != null)
                         {
                             <button type="submit" class="btn btn-danger form-control" asp-action="Remove" asp-route-id="@Model.Id">Remove from Cart</button>
                         }
                         else
                         {
-                            <input type="submit" class="btn btn-info form-control" value="Add to Cart" />
-                        } *@
+                        <button type="submit" class="btn btn-primary form-control" id="Add To Cart">Add To Cart</button>
+                        }
 
                 </div>
 

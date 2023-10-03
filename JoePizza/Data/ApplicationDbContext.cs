@@ -14,8 +14,11 @@ namespace JoePizza.Data
         public DbSet<Pizza> Pizza { get; set; }
 
         public DbSet<Size> Sizes { get; set; }
+
+        public DbSet<PizzasInCart> pizzasInCart { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetails> OrderDetails { get; set; }
+
 
     }
 }
