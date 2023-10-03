@@ -9,9 +9,5 @@ namespace JoePizza.Models
         [Required]
         [Display(Name ="Pizza Size")]
         public string? PizzaSize { get; set; }
-
-        [Required]
-        [DataType(DataType.Currency)]
-        public decimal? Price { get; set; }
     }
 }
