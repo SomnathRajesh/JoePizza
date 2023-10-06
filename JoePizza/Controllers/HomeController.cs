@@ -254,7 +254,7 @@ namespace JoePizza.Controllers
             return View(pizzas);
         }
 
-        [Authorize]
+        
         public async Task<IActionResult> Order()
         {
             Order anOrder = new Order();
@@ -315,7 +315,7 @@ namespace JoePizza.Controllers
             return View(orderc);
         }
 
-        [Authorize]
+        
         public IActionResult Orders()
         {
             var orders = _db.Orders

@@ -132,12 +132,12 @@ namespace JoePizza_Testing_S.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Customizing and Adding Multiple Pizzas to Cart")]
-        public virtual void CustomizingAndAddingMultiplePizzasToCart()
+        [NUnit.Framework.DescriptionAttribute("Customizing and Adding Pizzas to Cart")]
+        public virtual void CustomizingAndAddingPizzasToCart()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Customizing and Adding Multiple Pizzas to Cart", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Customizing and Adding Pizzas to Cart", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 14
   this.ScenarioInitialize(scenarioInfo);
 #line hidden

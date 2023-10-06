@@ -104,9 +104,10 @@ namespace JoePizza_Testing_S.StepDefinitions
             //IWebElement customize = driver.FindElement(By.Id($"Customize-{p0}"));
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             js.ExecuteScript("arguments[0].click();", cusB);
+
         }
 
-
+        
 
     }
 }

@@ -11,15 +11,11 @@ namespace JoePizza_Testing_S.StepDefinitions
     {
         private IWebDriver driver;
 
-        [BeforeScenario]
-        public void BeforeScenario()
-        {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-        }
         [Given(@"The user is on the login page")]
         public void GivenTheUserIsOnTheLoginPage()
         {
+            driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
             driver.Url = "https://localhost:7154/Identity/Account/Login";
             Thread.Sleep(1000);
         }

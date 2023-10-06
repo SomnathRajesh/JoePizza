@@ -28,7 +28,9 @@ namespace JoePizza_Testing_S.StepDefinitions
             IWebElement order = driver.FindElement(By.Id("order"));
             string buttonValue = order.GetAttribute("value");
             Assert.AreEqual(p0, buttonValue);
-            order.Click();
+            //order.Click();
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("arguments[0].click();", order);
         }
 
         [Then(@"the ""([^""]*)"" page should be displayed")]
@@ -71,6 +73,7 @@ namespace JoePizza_Testing_S.StepDefinitions
             Assert.AreEqual(expectedTableData, actualTableData);
 
         }
+        
 
     }
 }

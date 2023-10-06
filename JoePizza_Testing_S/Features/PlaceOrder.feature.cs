@@ -74,14 +74,14 @@ namespace JoePizza_Testing_S.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Placing an Order for single pizza from Cart/Checkout")]
+        [NUnit.Framework.DescriptionAttribute("Placing an Order for pizza from Cart/Checkout")]
         [NUnit.Framework.CategoryAttribute("PlacingOrder")]
-        public virtual void PlacingAnOrderForSinglePizzaFromCartCheckout()
+        public virtual void PlacingAnOrderForPizzaFromCartCheckout()
         {
             string[] tagsOfScenario = new string[] {
                     "PlacingOrder"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Placing an Order for single pizza from Cart/Checkout", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Placing an Order for pizza from Cart/Checkout", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 4
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -132,12 +132,12 @@ namespace JoePizza_Testing_S.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Placing an Order for multiple pizzas from Cart/Checkout")]
-        public virtual void PlacingAnOrderForMultiplePizzasFromCartCheckout()
+        [NUnit.Framework.DescriptionAttribute("Placing an Order for pizzas from Cart/Checkout")]
+        public virtual void PlacingAnOrderForPizzasFromCartCheckout()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Placing an Order for multiple pizzas from Cart/Checkout", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Placing an Order for pizzas from Cart/Checkout", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 13
   this.ScenarioInitialize(scenarioInfo);
 #line hidden

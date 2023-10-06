@@ -11,7 +11,7 @@
     And the user clicks "Add To Cart"
     Then the "Achari Paneer" pizza with topping "Green chili pepper" size "Medium" and quantity "2" should be added to the cart
 
-  Scenario: Customizing and Adding Multiple Pizzas to Cart
+  Scenario: Customizing and Adding Pizzas to Cart
     Given the user navigates to the pizza selection page
     When the user clicks the customize button for the pizza named "Curry Paneer"
     Then the user should see the "Customize your Pizza" page with pizza details

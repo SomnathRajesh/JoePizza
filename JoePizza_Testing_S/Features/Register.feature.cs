@@ -106,7 +106,7 @@ namespace JoePizza_Testing_S.Features
         testRunner.Given("user is on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
-        testRunner.When("user enters email \"testingreg@example.com\" and password \"Password@123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.When("user enters email \"test1@example.com\" and password \"Password@123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 7
         testRunner.And("user confirms password \"Password@123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
