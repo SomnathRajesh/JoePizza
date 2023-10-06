@@ -58,11 +58,6 @@ namespace JoePizza.Controllers
             
             return View(_db.Pizza.ToList());
         }
-        private void InitializeHttpContext()
-        {
-            
-
-        }
 
         [HttpPost]
         public IActionResult Index(string? searchInput)
