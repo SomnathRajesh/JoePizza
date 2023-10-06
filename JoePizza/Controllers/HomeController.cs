@@ -4,6 +4,7 @@ using System.Drawing;
 using JoePizza.Data;
 using JoePizza.Models;
 using JoePizza.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -90,7 +91,7 @@ namespace JoePizza.Controllers
             {
                 return NotFound();
             }
-            var pizza = _db.Pizza.Include(c=>c.Toppings).FirstOrDefault(c=>c.Id==id);
+            var pizza = _db.Pizza.FirstOrDefault(c=>c.Id==id);
             if(pizza == null)
             {
                 return NotFound();
@@ -253,6 +254,7 @@ namespace JoePizza.Controllers
             return View(pizzas);
         }
 
+        [Authorize]
         public async Task<IActionResult> Order()
         {
             Order anOrder = new Order();
@@ -313,6 +315,7 @@ namespace JoePizza.Controllers
             return View(orderc);
         }
 
+        [Authorize]
         public IActionResult Orders()
         {
             var orders = _db.Orders

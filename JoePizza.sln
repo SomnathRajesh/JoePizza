@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoePizza", "JoePizza\JoePiz
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoePizza_Testing_S", "JoePizza_Testing_S\JoePizza_Testing_S.csproj", "{1B8D5E3D-FDE5-479E-83A8-7E2ACC36AF7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoePizza_UTesting", "JoePizza_UTesting\JoePizza_UTesting.csproj", "{D423C1E0-C3A3-4D76-ACF7-1523ACFBBA7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1B8D5E3D-FDE5-479E-83A8-7E2ACC36AF7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B8D5E3D-FDE5-479E-83A8-7E2ACC36AF7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B8D5E3D-FDE5-479E-83A8-7E2ACC36AF7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D423C1E0-C3A3-4D76-ACF7-1523ACFBBA7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D423C1E0-C3A3-4D76-ACF7-1523ACFBBA7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D423C1E0-C3A3-4D76-ACF7-1523ACFBBA7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D423C1E0-C3A3-4D76-ACF7-1523ACFBBA7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
